@@ -1,0 +1,41 @@
+{% load i18n admin_urls polymorphic_admin_tags polymorphic_tree_admin_tags %}
+
+{% breadcrumb_scope base_opts %}
+<ul class="breadcrumb">
+    <li>
+        <a href="{% url 'admin:index' %}">{% trans "Home" %}</a>
+        <span class="divider">&raquo;</span>
+    </li>
+    {% if opts.app_config %}{# Django 1.7+ #}
+    <li>
+        <a href="{% url 'admin:app_list' app_label=opts.app_label %}">{{ opts.app_config.verbose_name }}</a>
+        <span class="divider">&raquo;</span>
+    </li>
+    {% else %}
+    <li>
+        <a href="{% url 'admin:app_list' app_label=app_label %}">{{ app_label|capfirst|escape }}</a>
+        <span class="divider">&raquo;</span>
+    </li>
+    {% endif %}
+    {# not using module_name, because the 'opts' correclty point to the base model #}
+    <li>
+        <a href="{% url opts|admin_urlname:'changelist' %}">{{ opts.verbose_name_plural|capfirst }}</a>
+        <span class="divider">&raquo;</span>
+    </li>
+
+    {% for parent in object|mptt_breadcrumb %}
+    <li>
+        <a href="{% url opts|admin_urlname:'change' parent.pk|admin_urlquote %}">{{ parent }}</a>
+        <span class="divider">&raquo;</span>
+    </li>
+    {% endfor %}
+
+    <li>
+        <a href="{% url opts|admin_urlname:'change' object.pk|admin_urlquote %}">{{ object|truncatewords:"18" }}</a>
+        <span class="divider">&raquo;</span>
+    </li>
+    <li class="active">
+        {% trans 'History' %}
+    </li>
+</ul>
+{% endbreadcrumb_scope %}
