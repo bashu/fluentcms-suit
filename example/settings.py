@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'mptt',
     'polymorphic',
     'polymorphic_tree',
+    'slug_preview',
     'parler',
 
     'fluent_contents',
@@ -79,8 +80,8 @@ MIDDLEWARE_CLASSES = [
 ]
 
 TEMPLATE_DIRS = (
-    os.path.join(os.path.dirname(__file__), 'templates'),
     os.path.join(os.path.dirname(__file__), 'templates', 'layouts'),
+    os.path.join(os.path.dirname(__file__), 'templates'),
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = [
