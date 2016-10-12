@@ -1,0 +1,36 @@
+{% extends "admin/polymorphic_tree/stylable_change_list.html" %}
+{% load i18n admin_urls admin_list admin_static stylable_admin_list suit_tags %}
+
+{% block extrahead %}
+  {{ block.super }}
+  <link type="text/css" rel="stylesheet" href="{% static "polymorphic_tree/jqtree/jqtree.css" %}"/>
+  <link type="text/css" rel="stylesheet" href="{% static "polymorphic_tree/adminlist/nodetree.css" %}"/>
+  {% if not has_add_permission %}<style type="text/css">
+    .add-child-object { display: inline-block; visibility: hidden; width: 0px; }{# preserves the column height. #}
+  </style>{% endif %}
+  <script type="text/javascript">
+    if(! window.jQuery && window.django )
+      window.jQuery = window.django.jQuery;
+    window.$ = window.jQuery || window.django.jQuery;
+  </script>
+  <script type="text/javascript" src="{% static "polymorphic_tree/jquery.cookie.js" %}"></script>
+  <script type="text/javascript" src="{% static "polymorphic_tree/jqtree/tree.jquery.js" %}"></script>
+{% endblock %}
+
+{% block result_list %}
+  {% if cl.result_count %}
+    {% stylable_result_list cl template="admin/polymorphic_tree/jstree_list_results.html" %}
+  {% else %}
+    {% suit_bc_value 1.5 'pop' 1.6 '_popup' as POPUP_VAR %}
+    <div class="alert alert-block alert-info">
+      {% if cl.full_result_count %}
+        <h4>{% trans 'Nothing found' %}!</h4>
+        <br>
+        <a href="?{% if cl.is_popup %}{{ POPUP_VAR }}=1{% endif %}">{% trans 'Reset search and filters' %}</a>
+      {% else %}
+        {% blocktrans with cl.opts.verbose_name_plural|capfirst as name_plural %}{{ name_plural }} are not created yet{% endblocktrans %}.
+        {% if has_add_permission %}<a href="{% url cl.opts|admin_urlname:'add' %}{% if is_popup %}?{{ POPUP_VAR }}=1{% endif %}">{% blocktrans with cl.opts.verbose_name as name %}Add {{ name }}{% endblocktrans %}</a>{% endif %}
+      {% endif %}
+    </div>
+  {% endif %}
+{% endblock %}
