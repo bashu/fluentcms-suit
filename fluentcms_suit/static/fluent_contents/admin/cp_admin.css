@@ -1,0 +1,280 @@
+/*
+  Extra CSS for the Content Placeholder admin interface customisations
+ */
+
+html.cp-jsenabled .inline-contentitem-group {
+    /*
+    hide all ContentItem inlines, they are moved
+    to a separate DIV, where the items can be sorted.
+   */
+    display: none;
+}
+
+
+
+/* ---- Clearfix ---- */
+
+.cp-clearfix:after {
+    content:      ".";
+    font-size:    0;
+    line-height:  0;
+    display:      block;
+    height:       0;  
+    clear:        both;
+    visibility:   hidden;
+}
+
+* html .cp-clearfix { height:     1%; } /* 1% of nothing makes IE 6 do the right thing. */
+*+html .cp-clearfix { min-height: 0;  } /* and IE7 has new tricks to trigger hasLayout. */
+
+
+/* ---- Editor items ---- */
+
+.cp-item-controls {
+    float: right;
+    margin-right: 5px;
+}
+
+.cp-item-delete input {
+    display: none;  /* needed for server side, but has special handling in admin.js */
+}
+
+.cp-item-icons {
+    margin-right: 5px;
+}
+
+.cp-item-delete {
+    float: left;
+}
+
+.cp-item-icons a {
+    display: inline-block;
+}
+
+.cp-item-up   {}
+.cp-item-down {}
+.cp-item-move {}
+
+body.cp-single-placeholder .cp-item-move { display: none; }
+body.cp-single-placeholder #tab-orphaned .cp-item-move { display: inline; }  /* always show in orphaned tab */
+
+.inline-related:first-child .cp-item-up { display: none; }
+.inline-related:last-child  .cp-item-down { display: none; }
+
+.cp-item-delete a {
+}
+
+#cp-move-popup {
+    position: absolute;
+    display: none;
+    line-height: 20px;
+    font-size: 12px;
+    border: 1px solid #ccc;
+}
+
+#cp-move-popup p {
+    margin: 0;
+    padding: 3px 6px;
+    background-image: url("img/admin/default-bg.gif");
+    color: #fff;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+#cp-move-popup ul {
+    margin: 0;
+    padding: 0;
+    list-style-position: outside;
+}
+
+#cp-move-popup li {
+    list-style: none;
+    background: url(img/admin/nav-bg-reverse.gif) left bottom;
+}
+
+#cp-move-popup li a {
+    display: block;
+    white-space: nowrap;
+    padding: 3px 6px;
+}
+
+* html #cp-move-popup li a { height: 1%; }
+*+html #cp-move-popup li a { min-height: 0; }
+
+.cp-empty {
+    margin: 0.5em 0;
+}
+
+.cp-empty p {
+    color: #999;
+    text-shadow: 0px 1px rgba(255, 255, 255, 0.5);
+}
+
+#cp-tabmain .cp-empty,
+#cp-tabs-empty {
+    margin: 10px 5px;
+}
+
+/* ---- Fieldset fixes ---- */
+
+.form-row.cp-has-hidden-field {
+    display: none;
+}
+
+form .form-row.no-labels p.help {
+    padding-left: 0;
+    margin-left: 0;
+}
+
+/* ---- CheckboxSelectMultiple fixes ---- */
+
+.aligned .form-row ul li {
+    list-style-type: none;
+}
+
+/* ---- Inline header fixes ---- */
+
+h3.cp-formset-item-title {
+    cursor: pointer;
+    cursor: grab;
+}
+
+.sortable-chosen h3.cp-formset-item-title {
+    cursor: grabbing;
+}
+
+
+/* ---- Tabbar interface ---- */
+
+.inline-placeholder-group {
+    border: 0;
+    position: relative;
+
+    /* enforce new rendering context, avoid jumpy animations with cp_tabs.hide() / show() */
+    overflow: auto;
+    margin-top: 0;
+}
+
+.inline-placeholder-group::after {
+    content: "";
+    display: block;
+    height: 10px;
+    border-width: 0px 0px 0px 200px;
+    border-style: none none none solid;
+    border-color: -moz-use-text-color -moz-use-text-color -moz-use-text-color #DFE1E4;
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    border-image: none;
+    background: #DFE1E4 none repeat scroll 0% 0%;
+    margin: 35px 0px 40px -220px;
+}
+
+#cp-tabnav {
+    padding: 15px 0 0 0;  /* the extra top space for .inline-placeholder-group */
+}
+
+#cp-tabnav li {
+    float: left;
+}
+
+#cp-tabnav li.active {
+}
+
+#cp-tabnav a {
+}
+
+#cp-tabnav li.active a {
+}
+
+/* tab content */
+
+#cp-tabmain {
+    padding: 10px;
+}
+
+#cp-tabmain .cp-placeholder-delete {
+    display: none;
+}
+
+.cp-content .form-row:last-child {
+    border-bottom: 0;
+    margin-bottom: 15px;
+}
+
+
+/* default tabbar appearance */
+
+.cp-tab { display: none }
+#cp-tabmain .cp-tab-active { display: block }
+
+
+/* ---- PlaceholderField ---- */
+
+.cp-placeholderfield {
+    font-size: 12px;
+    position: relative;
+
+    /* establish block context, fix jumping effect when adding first item.
+     Also moves the item to the right of the label (9em+10px) */
+    overflow-x: hidden;
+}
+
+.wide .cp-placeholderfield {
+    margin-left: 15em;
+}
+
+fieldset.plugin-holder label {
+    display: none
+}
+
+fieldset.plugin-holder .cp-placeholderfield label {
+    display: inline;
+}
+
+fieldset.plugin-holder .cp-placeholderfield {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ---- Placeholder pane ---- */
+
+.cp-controls {
+    margin-top: 15px;
+}
+
+.cp-copy-language-controls {
+    margin-left: 12px;
+}
+
+
+/* ---- Rich editor (quick fixes) ---- */
+
+.inline-TextItem .cp-wysiwyg-widget {
+    display: none;  /* avoid flashing a textarea which is to become a WYSIWYG editor */
+}
+
+.field-image .related-widget-wrapper-link.change-related {
+    display: none;
+}
+
+body.yui-skin-sam .inline-TextItem .yui-editor-container {
+    border-color: #ccc;
+}
+
+body.yui-skin-sam .inline-TextItem .yui-editor-container .yui-toolbar-subcont {
+    border-color: #ccc;
+    padding-left: 0.5em;
+}
+
+body.yui-skin-sam .inline-TextItem .yui-toolbar-container {
+    background-color: #eee;
+}
+
+body.yui-skin-sam .inline-TextItem .yui-toolbar-container .yui-toolbar-group h3 {
+    font-weight: normal;
+    margin-top: 0.35em;
+    border: 0;
+}

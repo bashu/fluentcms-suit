@@ -1,0 +1,26 @@
+{% load i18n admin_urls placeholder_admin_tags %}
+          <div class="cp-controls">
+            <select>{% for category_title, plugins in cp_plugin_list|group_plugins_into_categories|plugin_categories_to_list %}
+              {% if category_title %}<optgroup label="{{ category_title }}">{% endif %}
+                {% for plugin in plugins %}
+                  <option value="{{ plugin.type_name }}">{{ plugin.verbose_name }}</option>
+                {% endfor %}
+              {% if category_title %}</optgroup>{% endif %}
+              {% endfor %}
+            </select>
+            <input data-placeholder-id="{{ placeholder_id }}" data-placeholder-slot="{{ placeholder_slot }}" class="btn cp-plugin-add-button" type="button" value="{% trans "Add" %}" />
+
+            {% if other_instance_languages %}
+              <span class="cp-copy-language-controls">
+                <select>
+                  {% for lang, lang_title in other_instance_languages %}
+                    <option value="{{ lang }}">{{ lang_title }}</option>
+                  {% endfor %}
+                </select>
+                {# As the controls.html is used by both the inline-admin code, and widget fieldset, #}
+                {# the data-get-placeholder-data-url is not included here. There is no access to the 'opts' from the widget. #}
+                <input type="button" class="btn cp-copy-button" value="{% trans 'Copy language' %}"
+                       data-placeholder-id="{{ placeholder_id }}" data-placeholder-slot="{{ placeholder_slot }}" />
+              </span>
+            {% endif %}
+          </div>
