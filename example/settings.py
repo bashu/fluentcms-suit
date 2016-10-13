@@ -57,8 +57,21 @@ INSTALLED_APPS = [
     'parler',
 
     'fluent_contents',
+    'fluent_contents.plugins.code',
+    'fluent_contents.plugins.commentsarea',
+    'fluent_contents.plugins.gist',
+    'fluent_contents.plugins.googledocsviewer',
+    'fluent_contents.plugins.iframe',
+    'fluent_contents.plugins.markup',
+    'fluent_contents.plugins.oembeditem',
+    'fluent_contents.plugins.picture',
+    'fluent_contents.plugins.rawhtml',
+    'fluent_contents.plugins.sharedcontent',
+    'fluent_contents.plugins.text',
 
     'any_urlfield',
+    'any_imagefield',
+
     'django_wysiwyg',
     'tinymce',
 ]
@@ -68,6 +81,16 @@ if django.VERSION < (1, 7):
     INSTALLED_APPS += [
         'south',
     ]
+
+if 'fluent_contents.plugins.commentsarea' in INSTALLED_APPS:
+    if django.VERSION < (1, 7):
+        INSTALLED_APPS += [
+            'django.contrib.comments',
+        ]
+    else:
+        INSTALLED_APPS += [
+            'django_comments',
+        ]
 
 MIDDLEWARE_CLASSES = [
     'django.contrib.sessions.middleware.SessionMiddleware',
