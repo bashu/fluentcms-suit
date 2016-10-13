@@ -1,0 +1,21 @@
+{% extends "admin/fluent_contents/fieldset.html" %}
+
+{% load i18n %}
+
+{% block line %}
+{% if 'embed_max_width' in line.fields %}
+<div class="control-group form-row{% if line.errors %} errors{% endif %}"><div>
+    <div class="control-label">
+        <label for="{{ form.embed_max_width.auto_id }}">{% trans "Max size" %}:</label>
+    </div>
+    <div class="controls">
+        {{ form.embed_max_width }} &nbsp;&times;&nbsp; {{ form.embed_max_height }}&nbsp; {% trans "pixels" %}
+        {% if line.errors %}
+        <span class="help-inline">{{ line.errors }}</span>
+        {% endif %}
+    </div>
+</div></div>
+{% else %}
+  {% include "admin/fluent_contents/fieldset_line.html" %}
+{% endif %}
+{% endblock %}

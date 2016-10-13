@@ -1,0 +1,11 @@
+.inline-OEmbedItem .vURLField {
+    display: block;
+    width: 100%;
+    min-height: 28px;
+    box-sizing: border-box;
+    float: left;
+}
+
+.inline-OEmbedItem .vIntegerField {
+    width: 65px;
+}
