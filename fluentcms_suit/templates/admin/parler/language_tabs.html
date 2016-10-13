@@ -1,0 +1,9 @@
+{% load i18n %}
+{% if language_tabs %}
+<ul class="parler-language-tabs nav nav-tabs nav-tabs-suit{% if language_tabs.css_class %} {{ language_tabs.css_class }}{% endif %}">
+	{% for url,name,code,status in language_tabs %}
+    <li class="{% if status == 'current' %}active current{% else %}{{ status }}{% endif %}"><a href="{{ url }}">{{ name }}</a></li>
+    {% if status == 'current' %}<input type="hidden" class="language_button selected" name="{{ code }}" />{% endif %}
+  {% endfor %}
+</ul>
+{% endif %}

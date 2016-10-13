@@ -1,0 +1,48 @@
+{% extends "admin/delete_confirmation.html" %}
+{% load i18n admin_urls polymorphic_admin_tags polymorphic_tree_admin_tags %}
+
+{# Add tree levels to polymorphic breadcrumb #}
+{% block breadcrumbs %}{% breadcrumb_scope base_opts %}
+<ul class="breadcrumb">
+    <li>
+        <a href="{% url 'admin:index' %}">{% trans "Home" %}</a>
+        <span class="divider">&raquo;</span>
+    </li>
+    <li>
+        <a href="{% url 'admin:index' %}fluent_pages/">{% trans "Fluent Pages" %}</a>
+        <span class="divider">&raquo;</span>
+    </li>
+    <li>
+        <a href="{% url opts|admin_urlname:'changelist' %}">{{ opts.verbose_name_plural|capfirst }}</a>
+        <span class="divider">&raquo;</span>
+    </li>
+
+    {% if object.master %}
+    {% for parent in object.master|mptt_breadcrumb %}
+    <li>
+        <a href="{% url opts|admin_urlname:'change' parent.pk|admin_urlquote %}">{{ parent }}</a>
+        <span class="divider">&raquo;</span>
+    </li>
+    {% endfor %}
+    {% else %}
+    {% for parent in master|mptt_breadcrumb %}
+    <li>
+        <a href="{% url opts|admin_urlname:'change' parent.pk|admin_urlquote %}">{{ parent }}</a>
+        <span class="divider">&raquo;</span>
+    </li>
+    {% endfor %}
+    {% endif %}
+
+    <li>
+        {% if object.master %}
+        <a href="{% url opts|admin_urlname:'change' object.master.pk|admin_urlquote %}">{{ object|truncatewords:"18" }}</a>
+        {% else %}
+        <a href="{% url opts|admin_urlname:'change' object.pk|admin_urlquote %}">{{ object|truncatewords:"18" }}</a>
+        {% endif %}
+        <span class="divider">&raquo;</span>
+    </li>
+    <li class="active">
+        {% trans 'Delete' %}
+    </li>
+</ul>
+{% endbreadcrumb_scope %}{% endblock %}

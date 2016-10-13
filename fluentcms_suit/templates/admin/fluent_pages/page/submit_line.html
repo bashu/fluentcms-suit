@@ -1,0 +1,25 @@
+{% load i18n admin_urls suit_tags %}
+<div class="submit-row clearfix">
+  <button type="submit" class="btn btn-high btn-info" name="_save">{% trans 'Save' %}</button>
+  {% if not is_popup and has_change_permission %}<button type="submit" name="_continue" class=" btn btn-high">{% trans 'Save and continue editing' %}</button>{% endif %}
+  {% if not is_popup and change and save_as %}<button type="submit" name="_saveasnew" class="btn">{% trans 'Save as new' %}</button>{%endif%}
+  {% if not is_popup and has_add_permission %}{% if not save_as or add %}<button type="submit" name="_addanother" class="btn">{% trans 'Save and add another' %}</button>{% endif %}{% endif %}
+
+  {% if not is_popup and change and has_delete_permission %}
+    {% if '1.9'|django_version_lt %}
+      <a href="delete/" class="text-error deletelink">{% trans "Delete" %}</a>
+    {% else %}
+        {% url opts|admin_urlname:'delete' original.pk|admin_urlquote as delete_url %}
+        <a href="{% add_preserved_filters delete_url %}" class="text-error deletelink">{% trans "Delete" %}</a>
+    {% endif %}
+  {% endif %}
+  {% if language_tabs %}
+	  {% for url, name, code, status in language_tabs %}
+    {% if status == 'current' and language_tabs.current_is_translated and language_tabs.allow_deletion %}
+    <a href="./delete-translation/{{ code }}/" class="text-error deletelink delete-translation">
+        {% blocktrans %}Delete {{ name }} translation{% endblocktrans %}
+    </a>
+    {% endif %}
+    {% endfor %}
+  {% endif %}
+</div>

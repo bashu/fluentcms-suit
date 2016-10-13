@@ -6,7 +6,13 @@
     <div class="inner-right-column">
         <div class="box save-box">
             <input type="hidden" name="_action" />
-            {% block submit_buttons_bottom %}{% submit_row %}{% endblock %}
+            {% block submit_buttons_bottom %}
+            {% if add %}
+            {% submit_row %}
+            {% else %}
+            {% include "admin/fluent_pages/page/submit_line.html" %}
+            {% endif %}
+            {% endblock %}
         </div>
         {% block object-tools %}
 {% if change %}{% if not is_popup %}
