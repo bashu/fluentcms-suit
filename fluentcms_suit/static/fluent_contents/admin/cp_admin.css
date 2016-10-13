@@ -260,6 +260,15 @@ fieldset.plugin-holder .cp-placeholderfield {
     display: none;
 }
 
+.mceEditor {
+    width: 100%;
+}
+
+/* on mobile browsers, I set a width of 100% */
+table.mceLayout, textarea.tinyMCE {
+    width: 100% !important;
+}
+
 body.yui-skin-sam .inline-TextItem .yui-editor-container {
     border-color: #ccc;
 }
