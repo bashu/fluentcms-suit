@@ -167,3 +167,12 @@ STATIC_URL = '/static/'
 FLUENT_PAGES_TEMPLATE_DIR = os.path.join(os.path.dirname(__file__), 'templates', 'layouts')
 
 DJANGO_WYSIWYG_FLAVOR = "tinymce"
+
+PARLER_DEFAULT_LANGUAGE = LANGUAGE_CODE
+PARLER_LANGUAGES = {
+    SITE_ID: tuple([{'code': lang[0]} for lang in LANGUAGES]),
+    'default': {
+        'fallback': LANGUAGE_CODE,
+        'hide_untranslated': False,
+    }
+}
