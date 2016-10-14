@@ -1,0 +1,139 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-14 11:27+0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: templates/admin/fluent_contents/placeholder/inline_tabs.html:57
+msgid "Loading layout data..."
+msgstr ""
+
+#: templates/admin/fluent_contents/placeholder/inline_tabs.html:58
+msgid "Orphaned content"
+msgstr ""
+
+#: templates/admin/fluent_contents/placeholder/inline_tabs.html:93
+msgid "There are no placeholders in this template."
+msgstr ""
+
+#: templates/admin/fluent_contents/placeholderfield/controls.html:11
+#: templates/admin/polymorphic_tree/change_form_breadcrumbs.html:39
+msgid "Add"
+msgstr ""
+
+#: templates/admin/fluent_contents/placeholderfield/controls.html:22
+msgid "Copy language"
+msgstr ""
+
+#: templates/admin/fluent_contents/plugins/oembeditem/fieldset.html:9
+msgid "Max size"
+msgstr ""
+
+#: templates/admin/fluent_contents/plugins/oembeditem/fieldset.html:12
+msgid "pixels"
+msgstr ""
+
+#: templates/admin/fluent_pages/page/base_change_form.html:19
+msgid "tools"
+msgstr ""
+
+#: templates/admin/fluent_pages/page/base_change_form.html:24
+#: templates/admin/polymorphic_tree/object_history_breadcrumbs.html:38
+msgid "History"
+msgstr ""
+
+#: templates/admin/fluent_pages/page/base_change_form.html:26
+msgid "View on site"
+msgstr ""
+
+#: templates/admin/fluent_pages/page/base_change_form.html:29
+#: templates/admin/polymorphic_tree/change_list.html:32
+#, python-format
+msgid "Add %(name)s"
+msgstr ""
+
+#: templates/admin/fluent_pages/page/base_change_form.html:55
+msgid "Please correct the error below."
+msgstr ""
+
+#: templates/admin/fluent_pages/page/base_change_form.html:55
+msgid "Please correct the errors below."
+msgstr ""
+
+#: templates/admin/fluent_pages/page/delete_confirmation.html:8
+#: templates/admin/polymorphic_tree/change_form_breadcrumbs.html:6
+#: templates/admin/polymorphic_tree/delete_confirmation.html:8
+#: templates/admin/polymorphic_tree/object_history_breadcrumbs.html:6
+msgid "Home"
+msgstr ""
+
+#: templates/admin/fluent_pages/page/delete_confirmation.html:12
+msgid "Fluent Pages"
+msgstr ""
+
+#: templates/admin/fluent_pages/page/delete_confirmation.html:45
+#: templates/admin/fluent_pages/page/submit_line.html:10
+#: templates/admin/fluent_pages/page/submit_line.html:13
+#: templates/admin/polymorphic_tree/delete_confirmation.html:39
+msgid "Delete"
+msgstr ""
+
+#: templates/admin/fluent_pages/page/submit_line.html:3
+msgid "Save"
+msgstr ""
+
+#: templates/admin/fluent_pages/page/submit_line.html:4
+msgid "Save and continue editing"
+msgstr ""
+
+#: templates/admin/fluent_pages/page/submit_line.html:5
+msgid "Save as new"
+msgstr ""
+
+#: templates/admin/fluent_pages/page/submit_line.html:6
+msgid "Save and add another"
+msgstr ""
+
+#: templates/admin/fluent_pages/page/submit_line.html:20
+#, python-format
+msgid "Delete %(name)s translation"
+msgstr ""
+
+#: templates/admin/polymorphic_tree/change_list.html:27
+msgid "Nothing found"
+msgstr ""
+
+#: templates/admin/polymorphic_tree/change_list.html:29
+msgid "Reset search and filters"
+msgstr ""
+
+#: templates/admin/polymorphic_tree/change_list.html:31
+#, python-format
+msgid "%(name_plural)s are not created yet"
+msgstr ""
+
+#: templates/admin/polymorphic_tree/jstree_list_results.html:109
+msgid ""
+"Unable to move the node, the current display is out-of-date.\\nThe current "
+"page now reloaded."
+msgstr ""
+
+#: templates/admin/polymorphic_tree/jstree_list_results.html:117
+msgid ""
+"There was an error while moving the node, please reload the current page."
+msgstr ""
