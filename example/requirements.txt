@@ -12,6 +12,8 @@ pillow
 south
 
 pytz
+pygments
+
 textile
 docutils
 
