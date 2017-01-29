@@ -40,7 +40,7 @@ setup(
     license='MIT License',
 
     install_requires=[
-        'django-suit>=2.0',
+        'django-suit>=0.2',
     ],
     requires=[
         'Django (>=1.4)',
