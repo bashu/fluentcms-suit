@@ -170,6 +170,7 @@ STATIC_URL = '/static/'
 ## Fluent / Parler settings
 
 FLUENT_PAGES_TEMPLATE_DIR = os.path.join(os.path.dirname(__file__), 'templates', 'layouts')
+FLUENT_PAGES_PARENT_ADMIN_MIXIN = 'fluentcms_suit.admin.FluentPagesParentAdminMixin'
 
 DJANGO_WYSIWYG_FLAVOR = "tinymce"
 
