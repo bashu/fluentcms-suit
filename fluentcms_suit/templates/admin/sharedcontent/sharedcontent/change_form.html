@@ -1,0 +1,17 @@
+{% extends "admin/change_form.html" %}
+{% load i18n admin_modify %}
+
+{% block breadcrumbs %}
+  {% if original and original.is_cross_site %}
+    <p class="errornote">{% trans "This object can be displayed on multiple sites. Please verify that links in the content work across all sites." %}</p>
+  {% endif %}
+  {{ block.super }}
+{% endblock %}
+
+{% block submit_buttons_bottom %}
+  {% if add %}
+    {% submit_row %}
+  {% else %}
+    {% include "admin/fluent_pages/page/submit_line.html" %}
+  {% endif %}
+{% endblock %}
