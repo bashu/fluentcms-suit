@@ -44,8 +44,8 @@ INSTALLED_APPS = [
     'fluent_pages',
     'fluent_pages.pagetypes.flatpage',
     'fluent_pages.pagetypes.fluentpage',
-    # 'fluent_pages.pagetypes.redirectnode',  # upstream bug #110
-    'fluent_pages.pagetypes.textfile',
+    'fluent_pages.pagetypes.redirectnode',
+    #'fluent_pages.pagetypes.textfile', # upstream bug #130
 
     'mptt',
     'polymorphic',
