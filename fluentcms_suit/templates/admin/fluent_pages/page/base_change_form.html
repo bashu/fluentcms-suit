@@ -91,8 +91,15 @@
 
           {% block field_sets %}
             {% for fieldset in adminform %}
-              {% include "admin/includes/fieldset.html" %}
+              {% if forloop.first %}{% include "admin/includes/fieldset.html" %}{% endif %}
             {% endfor %}
+
+            {% block after_first_fieldset %}{% endblock %}
+
+            {% for fieldset in adminform %}
+              {% if not forloop.first %}{% include "admin/includes/fieldset.html" %}{% endif %}
+            {% endfor %}
+
           {% endblock %}
 
           {% block after_field_sets %}{% endblock %}
