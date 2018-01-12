@@ -1,10 +1,10 @@
 {% extends "admin/polymorphic_tree/change_form.html" %}
-{% load i18n suit_tags admin_urls admin_modify admin_static fluent_pages_admin_tags %}
+{% load i18n suit_tags admin_urls admin_modify admin_static %}
 
 {% block suit_jquery %}{% if '1.9'|django_version_gte %}<script src="{% static 'suit/js/jquery-2.2.4.min.js' %}">{% else %}<script src="{% static 'suit/js/jquery-1.12.4.min.js' %}">{% endif %}</script>{% endblock %}
   
 {% block content %}<div id="content-main" class="inner-two-columns">
-<form {% if has_file_field %}enctype="multipart/form-data" {% endif %}action="{{ form_url }}" method="post" id="{{ opts|get_meta_model_name }}_form" class="form-horizontal">
+<form {% if has_file_field %}enctype="multipart/form-data" {% endif %}action="{{ form_url }}" method="post" id="{{ opts.model_name }}_form" class="form-horizontal">
     <div class="inner-right-column">
         <div class="box save-box">
             <input type="hidden" name="_action" />
@@ -28,7 +28,7 @@
     {% if original.url %}<li><a href="{{ original.url }}" class="viewsitelink"><i class="icon-eye-open icon-alpha75"></i>{% trans "View on site" %}</a></li>{% endif %}
     {% if has_add_permission %}
     <li>
-        <a href="../add/?ct_id={{ content_type_id }}"><i class="icon-plus-sign icon-alpha75"></i>{% blocktrans with opts.verbose_name as name %}Add {{ name }}{% endblocktrans %}
+        <a href="../../add/?ct_id={{ content_type_id }}"><i class="icon-plus-sign icon-alpha75"></i>{% blocktrans with opts.verbose_name as name %}Add {{ name }}{% endblocktrans %}
         </a></li>
         {% endif %}
         {% endblock %}
@@ -107,7 +107,7 @@
                     showRelatedObjectLookupPopup(this);
                 });
             {% if adminform and add %}
-                $('form#{{ opts|get_meta_model_name }}_form :input:visible:enabled:first').focus()
+                $('form#{{ opts.model_name }}_form :input:visible:enabled:first').focus()
             {% endif %}
             });
         })(django.jQuery);
