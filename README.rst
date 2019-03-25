@@ -6,11 +6,11 @@ A collection of template overrides to get django-fluent-pages_ (including django
 .. image:: https://img.shields.io/pypi/v/fluentcms-suit.svg
     :target: https://pypi.python.org/pypi/fluentcms-suit/
 
-.. image:: https://img.shields.io/github/license/bashu/fluentcms-suit.svg
+.. image:: https://img.shields.io/pypi/dm/fluentcms-suit.svg
     :target: https://pypi.python.org/pypi/fluentcms-suit/
 
-.. image:: https://landscape.io/github/bashu/fluentcms-suit/develop/landscape.svg?style=flat
-    :target: https://landscape.io/github/bashu/fluentcms-suit/develop
+.. image:: https://img.shields.io/github/license/bashu/fluentcms-suit.svg
+    :target: https://pypi.python.org/pypi/fluentcms-suit/
 
 Installation
 ============
