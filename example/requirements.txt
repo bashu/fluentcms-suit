@@ -1,14 +1,14 @@
-django<2.0
-django-polymorphic>1.2,<2.0
+django>2.0
+django-polymorphic>2.0
 django-suit
 django-wysiwyg
 django-any-urlfield
 django-any-imagefield
-django-fluent-contents<2.0
-django-fluent-pages<2.0
+django-fluent-contents>2.0
+django-fluent-pages>2.0
 django-tinymce
 markdown
-pillow<5.0
+pillow>4.0
 south
 
 pytz
