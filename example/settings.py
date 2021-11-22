@@ -12,7 +12,7 @@ import os, re
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -170,7 +170,7 @@ DJANGO_WYSIWYG_FLAVOR = "tinymce"
 
 PARLER_DEFAULT_LANGUAGE = LANGUAGE_CODE
 PARLER_LANGUAGES = {
-    SITE_ID: tuple([{'code': lang[0]} for lang in LANGUAGES]),
+    SITE_ID: tuple({'code': lang[0]} for lang in LANGUAGES),
     'default': {
         'fallback': LANGUAGE_CODE,
         'hide_untranslated': False,
