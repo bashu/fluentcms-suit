@@ -1,8 +1,6 @@
 fluentcms-suit
 ==============
 
-A collection of template overrides to get django-fluent-pages_ (including django-parler_) to play nice with django-suit_.
-
 .. image:: https://img.shields.io/pypi/v/fluentcms-suit.svg
     :target: https://pypi.python.org/pypi/fluentcms-suit/
 
@@ -12,8 +10,10 @@ A collection of template overrides to get django-fluent-pages_ (including django
 .. image:: https://img.shields.io/github/license/bashu/fluentcms-suit.svg
     :target: https://pypi.python.org/pypi/fluentcms-suit/
 
+A collection of template overrides to get django-fluent-pages_ (including django-parler_) to play nice with django-suit_.
+
 Installation
-============
+------------
 
 First install the module, preferably in a virtual environment. It can be installed from PyPI:
 
@@ -22,7 +22,7 @@ First install the module, preferably in a virtual environment. It can be install
     pip install fluentcms-suit
 
 Backend Configuration
----------------------
+~~~~~~~~~~~~~~~~~~~~~
 
 First make sure the project is configured for django-fluent-pages_ and django-suit_.
 
